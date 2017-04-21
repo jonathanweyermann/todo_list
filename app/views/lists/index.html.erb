@@ -1,0 +1,10 @@
+<%= react_component("List", {name: "Hello World"}) %>
+Hello
+
+
+<%= simple_form_for list, url: lists_path, method: :post do |f| %>
+  <%= f.input :name %>
+
+
+  <%= f.submit 'Save Changes', class: 'save button' %>
+<% end %>

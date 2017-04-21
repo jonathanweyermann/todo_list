@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: todolist_development
+
+test:
+  <<: *default
+  database: todolist_test
+
+<% if ENV["DB_ENV"] %>
+<%= ENV["DB_ENV"] %>:
+ adapter: <%= ENV["DB_ADAPTER"] %>
+ host: <%= ENV["DB_HOST"] %>
+ port: <%= ENV["DB_PORT"] %>
+ encoding: <%= ENV["DB_ENCODING"] %>
+ database: <%= ENV["DB_NAME"] %>
+ pool: <%= ENV["DB_POOL"] %>
+ username: <%= ENV["DB_USER_NAME"] %>
+ password: <%= ENV["DB_PASSWORD"] %>
+<% end %>
