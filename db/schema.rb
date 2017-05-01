@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170421222628) do
   end
 
   create_table "lists", force: :cascade do |t|
-    t.string  "name"
+    t.string  "description"
     t.integer "completion_units"
   end
 

@@ -12,6 +12,8 @@ gem 'rails', '~> 5.0.2'
 # environment variables
 gem 'foreman'
 gem 'dotenv-rails'
+
+gem 'bootstrap-sass', '~> 3.3.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
