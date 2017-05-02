@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421222628) do
+ActiveRecord::Schema.define(version: 20170501205441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170421222628) do
   create_table "lists", force: :cascade do |t|
     t.string  "description"
     t.integer "completion_units"
+    t.integer "finished_completion_units"
   end
 
   add_foreign_key "items", "lists"

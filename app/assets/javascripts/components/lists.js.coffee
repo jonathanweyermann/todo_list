@@ -16,6 +16,11 @@
       React.DOM.h2
         className: 'title'
         'Lists'
+      React.DOM.div
+        className: 'row'
+        React.createElement AmountBox, type: 'success', amount: @completed(), text: 'Completed'
+        React.createElement AmountBox, type: 'danger', amount: @remaining(), text: 'Remaining'
+        React.createElement AmountBox, type: 'info', amount: @total(), text: 'Total'
       React.createElement listform, handleNewList: @addList
       React.DOM.hr null
       React.DOM.table
@@ -27,3 +32,21 @@
         React.DOM.tbody null,
           for list in @state.lists
             React.createElement List, key: list.id, list: list
+
+  completed: ->
+    completed = @state.lists.map (val) ->
+      if val.finished_completion_units == null
+        0
+      else
+        val.finished_completion_units
+    completed.reduce ((prev, curr) ->
+      prev + curr
+    ), 0
+  remaining: ->
+    remaining = @state.lists.map (val) ->
+      val.completion_units - val.finished_completion_units
+    remaining.reduce ((prev, curr) ->
+      prev + curr
+    ), 0
+  total: ->
+    @completed() + @remaining()
