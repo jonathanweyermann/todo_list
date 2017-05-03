@@ -10,6 +10,11 @@
     lists.push list
     @setState lists: lists
 
+  deleteList: (list) ->
+    index = @state.lists.indexOf list
+    lists = React.addons.update(@state.lists, { $splice: [[index, 1]] })
+    @replaceState lists: lists
+
   render: ->
     React.DOM.div
       className: 'records'
@@ -29,9 +34,10 @@
           React.DOM.tr null,
             React.DOM.th null, 'Description'
             React.DOM.th null, 'Completion Units'
+            React.DOM.th null, 'Actions'
         React.DOM.tbody null,
           for list in @state.lists
-            React.createElement List, key: list.id, list: list
+            React.createElement List, key: list.id, list: list, handleDeleteList: @deleteList
 
   completed: ->
     completed = @state.lists.map (val) ->

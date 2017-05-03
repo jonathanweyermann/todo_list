@@ -14,6 +14,12 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    list.destroy
+    head :no_content
+  end
+
+
   private
 
   def list_params
