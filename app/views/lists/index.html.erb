@@ -1,11 +1,1 @@
 <%= react_component 'lists', { data: lists } %>
-Hello
-
-
-<%= simple_form_for list, url: lists_path, method: :post do |f| %>
-  <%= f.input :description %>
-  <%= f.input :completion_units %>
-
-
-  <%= f.submit 'Save Changes', class: 'save button' %>
-<% end %>

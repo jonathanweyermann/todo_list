@@ -1,7 +1,16 @@
-@listform = React.createClass
+@ListForm = React.createClass
   getInitialState: ->
     description: ''
     completion_units: ''
+    finished_completion_units: ''
+
+  valid: ->
+    @state.description && @state.completion_units
+
+  handleChange: (e) ->
+    name = e.target.name
+    @setState "#{ name }": e.target.value
+
 
   handleSubmit: (e) ->
     e.preventDefault()
@@ -37,10 +46,3 @@
         className: 'btn btn-primary'
         disabled: !@valid()
         'Create task'
-
-  handleChange: (e) ->
-    name = e.target.name
-    @setState "#{ name }": e.target.value
-
-  valid: ->
-    @state.description && @state.completion_units
