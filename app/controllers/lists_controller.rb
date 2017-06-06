@@ -20,7 +20,7 @@ class ListsController < ApplicationController
       render json: list
     else
       flash[:alert] = list.errors
-      render json: list.errors, status: :unprocessable_entity
+      render json: list.reload
     end
   end
 
