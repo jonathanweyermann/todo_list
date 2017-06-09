@@ -38,6 +38,7 @@ gem 'draper', github: 'audionerd/draper', branch: 'rails5'
 gem 'simple_form'
 
 gem "react-rails"
+gem "chartkick"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

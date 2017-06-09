@@ -50,6 +50,7 @@
         React.createElement AmountBox, type: 'success', amount: @completed(), text: 'Completed'
         React.createElement AmountBox, type: 'danger', amount: @remaining(), text: 'Remaining'
         React.createElement AmountBox, type: 'info', amount: @total(), text: 'Total'
+        React.createElement LineChart, data: {"2013-02-10 00:00:00 -0800": 11, "2013-02-11 00:00:00 -0800": 6}
       React.createElement ListForm, handleNewList: @addList
       React.DOM.hr null
       React.DOM.table
