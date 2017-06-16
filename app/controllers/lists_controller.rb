@@ -1,9 +1,13 @@
 class ListsController < ApplicationController
   expose :list
   expose(:lists) { List.all }
+  expose(:chart_data) { List.all.map { |l| { description: l.description, completion_units: l.completion_units, finished_completion_units: l.finished_completion_units } }}
 
   def index
-    respond_to :html, :json
+    respond_to do |format|
+      format.html {}
+      format.json { render json: chart_data }
+    end
   end
 
   def create
