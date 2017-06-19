@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   expose :list
   expose(:lists) { List.all }
-  expose(:chart_data) { List.all.map { |l| { description: l.description, completion_units: l.completion_units, finished_completion_units: l.finished_completion_units } }}
+  expose(:chart_data) { List.all.map { |m| ChartSerializer.new(m, {root: false}).serializable_hash }.sort_by {|n| n[:name] } }
 
   def index
     respond_to do |format|

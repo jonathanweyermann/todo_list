@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'decent_exposure'
 gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-serializers-xml'
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'draper', github: 'audionerd/draper', branch: 'rails5'
 gem 'simple_form'
 
@@ -55,6 +56,8 @@ group :development, :test do
 end
 
 group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'

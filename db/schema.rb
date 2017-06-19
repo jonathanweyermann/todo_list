@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170501205441) do
   create_table "lists", force: :cascade do |t|
     t.string  "description"
     t.integer "completion_units"
-    t.integer "finished_completion_units"
+    t.integer "finished_completion_units", default: 0
   end
 
   add_foreign_key "items", "lists"
