@@ -6,6 +6,6 @@ class ChartSerializer < ActiveModel::Serializer
   end
 
   def data
-    (JSON.parse (["first": object.finished_completion_units,"second":object.completion_units].to_json)).first
+    (JSON.parse (["completed": "#{((100 * object.finished_completion_units) / object.completion_units)}"].to_json)).first
   end
 end

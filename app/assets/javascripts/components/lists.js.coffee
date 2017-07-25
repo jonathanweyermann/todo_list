@@ -25,8 +25,11 @@
 
   getChartData: ->
     $.getJSON '/lists.json', (data) ->
-      new Chartkick.BarChart("user-chart", data)
-      new Chartkick.LineChart("pie-chart", data)
+      new Chartkick.BarChart("user-chart", data, min: 0, max: 100)
+
+  getPieChartData: ->
+    $.getJSON '/pie.json', (data) ->
+      new Chartkick.PieChart("pie-chart", data)
 
   addList: (list) ->
     lists = @state.lists.slice()

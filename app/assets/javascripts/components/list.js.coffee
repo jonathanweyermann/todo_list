@@ -65,12 +65,13 @@
           className: 'col-sm-8'
           React.DOM.a
             className: 'btn btn-primary'
-            onClick: @addUnit
-            '+'
-          React.DOM.a
-            className: 'btn btn-primary'
             onClick: @removeUnit
             '-'
+          React.DOM.a
+            className: 'btn btn-primary'
+            onClick: @addUnit
+            '+'
+
       React.DOM.td null, @props.list.completion_units
       React.DOM.td null,
         React.DOM.a
